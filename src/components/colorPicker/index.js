@@ -8,37 +8,37 @@ export default class ColorPicker extends Component {
     this.state = { selectedColor: "" }
   }
   onSelected = (value) => {
-    console.log("check onSelect", value)
+    this.setState({
+      selectedColor: value
+    })
   }
 
   render() {
-    // let selectedColor;
-
     return (
       <div>
         <div className="layout-row justify-content-center">
           <div className="card mt-75">
-            <div className="canvas" data-testid="selectedColor">
-              <p className="text-center mx-auto px-5">{selectedColor}</p>
+            <div className="canvas" data-testid="selectedColor" style={{backgroundColor: this.state.selectedColor}}>
+              <p className="text-center mx-auto px-5">{this.state.selectedColor}</p>
             </div>
+            <div className="divider" />
             <div className="card-actions">
               <div className="layout-row justify-content-center align-items-center" data-testid="colorPickerOptions">
                 {this.props.colorPickerOptions.map((color, index) => {
                   return (
-                    <div
+                    <div onClick={this.onSelected.bind(this, color)}
+                         data-testid="selectedColor"
                       className={
-                        classNames({
+                        classNames('myCanvas',{
                           'color-box': true,
                           'mx-8': true,
                           'my-15': true,
-                          'selected': selectedColor === color
+                          'selected': this.state.selectedColor === color
                         })
                       }
-                      key={color}
+                      key={color} style={{backgroundColor: color}}
                     >
-                        <div onClick={this.onSelected.bind(this, color)} className="boxselection" style={{backgroundColor: color}}>
-                          {color}
-                        </div>
+                      <p className="myCanvas text-center mx-auto px-5">{color}</p>
                     </div>
                   );
                 })}
