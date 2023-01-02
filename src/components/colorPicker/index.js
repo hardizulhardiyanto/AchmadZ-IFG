@@ -3,9 +3,17 @@ import "./index.css";
 const classNames = require('classnames');
 
 export default class ColorPicker extends Component {
+  constructor(props) {
+    super();
+    this.state = { selectedColor: "" }
+  }
+  onSelected = (value) => {
+    console.log("check onSelect", value)
+  }
 
   render() {
-    let selectedColor;
+    // let selectedColor;
+
     return (
       <div>
         <div className="layout-row justify-content-center">
@@ -27,7 +35,11 @@ export default class ColorPicker extends Component {
                         })
                       }
                       key={color}
-                    ></div>
+                    >
+                        <div onClick={this.onSelected.bind(this, color)} className="boxselection" style={{backgroundColor: color}}>
+                          {color}
+                        </div>
+                    </div>
                   );
                 })}
               </div>
