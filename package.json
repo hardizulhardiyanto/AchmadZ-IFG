@@ -12,6 +12,8 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-icons": "^4.7.1",
+    "react-router-dom": "^6.6.1",
     "react-scripts": "1.0.17",
     "save": "^2.3.1"
   },

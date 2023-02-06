@@ -1,24 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import logo from './logo.svg';
-import ColorPicker from './components/colorPicker/index.js';
 
-const title = "Color Picker";
+import { Footer, Blog, Possibility, Features, WhatGPT3, Header} from './containers';
+import { CTA, Brand, Navbar } from './components';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <nav className="app-header layout-row align-items-center justify-content-center">
-          <div className="layout-row align-items-center">
-            <img alt="" src={logo} className="logo"/>
-            <h4 id="app-title" data-testid="app-title" className="app-title">{title}</h4>
-          </div>
-        </nav>
-        <ColorPicker colorPickerOptions={this.props.colorPickerOptions} initialSelectedColor={this.props.initialSelectedColor}/>
+const App = () => {
+  return (
+    <div className='App'>
+      <div className='gradient_bg'>
+        <Navbar />
+        <Header />
       </div>
-    );
-  }
+      <Brand />
+      <WhatGPT3 />
+      <Features />
+      <Possibility />
+      <CTA />
+      <Blog />
+      <Footer />
+    </div>
+  )
 }
 
-export default App;
+export default App
